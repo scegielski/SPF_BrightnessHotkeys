@@ -1,0 +1,7 @@
+build/
+out/
+.vs/
+config/
+*.dll
+*.pdb
+__pycache__/
