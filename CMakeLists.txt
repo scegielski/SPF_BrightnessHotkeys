@@ -7,6 +7,9 @@ enable_testing()
 add_executable(BrightnessTests Tests.cpp)
 target_include_directories(BrightnessTests PRIVATE SPF_API)
 add_test(NAME BrightnessRegression COMMAND BrightnessTests)
+add_executable(DiagnosticsTests DiagnosticsTests.cpp)
+target_include_directories(DiagnosticsTests PRIVATE SPF_API)
+add_test(NAME ReadOnlyAdaptationDiagnostics COMMAND DiagnosticsTests)
 add_custom_command(TARGET SPF_BrightnessHotkeys POST_BUILD
  COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/package/SPF_BrightnessHotkeys"
  COMMAND ${CMAKE_COMMAND} -E copy "$<TARGET_FILE:SPF_BrightnessHotkeys>" "${CMAKE_BINARY_DIR}/package/SPF_BrightnessHotkeys/")
